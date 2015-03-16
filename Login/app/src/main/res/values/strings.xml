@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Login</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="email">E-mail</string>
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="bem_vindo">Seja bem-vindo!</string>
+    <string name="info_invalidas">Informações inválidas</string>
+    <string name="limpar">Limpar</string>
+    <string name="sair">Sair</string>
+</resources>

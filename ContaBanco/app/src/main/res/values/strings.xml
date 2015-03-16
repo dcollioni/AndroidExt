@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Conta Banco</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="n_conta">Nº conta</string>
+    <string name="cpf">CPF</string>
+    <string name="cnpj">CNPJ</string>
+    <string name="pf">PF</string>
+    <string name="pj">PJ</string>
+    <string name="cartao_credito">Cartão de crédito</string>
+    <string name="seguro_cartao">Seguro do cartão</string>
+    <string name="talao_cheques">Talão de cheques</string>
+    <string name="concluir">Concluir</string>
+
+</resources>
