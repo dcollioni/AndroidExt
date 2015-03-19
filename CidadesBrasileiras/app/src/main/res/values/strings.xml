@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Cidades Brasileiras</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="regiao">Região:</string>
+    <string name="estado">Estado:</string>
+    <string name="cidade">Cidade:</string>
+
+    <string name="sudeste">Sudeste</string>
+    <string name="sul">Sul</string>
+
+    <string-array name="regioes">
+        <item>@string/sudeste</item>
+        <item>@string/sul</item>
+    </string-array>
+
+    <string name="area">Área:</string>
+    <string name="populacao">População:</string>
+    <string name="km2">km²</string>
+</resources>
