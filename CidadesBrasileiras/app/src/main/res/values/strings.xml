@@ -10,12 +10,9 @@
     <string name="sudeste">Sudeste</string>
     <string name="sul">Sul</string>
 
-    <string-array name="regioes">
-        <item>@string/sudeste</item>
-        <item>@string/sul</item>
-    </string-array>
-
     <string name="area">Área:</string>
     <string name="populacao">População:</string>
     <string name="km2">km²</string>
+    
+    <!-- TODO: criar array regiões -->
 </resources>
