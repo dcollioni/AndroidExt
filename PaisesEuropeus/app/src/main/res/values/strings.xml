@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Países Europeus</string>
+
+    <string name="espanha">Espanha</string>
+    <string name="italia">Itália</string>
+    <string name="inglaterra">Inglaterra</string>
+    <string name="franca">França</string>
+    <string name="alemanha">Alemanha</string>
+    <string name="holanda">Holanda</string>
+    <string name="portugal">Portugal</string>
+    <string name="irlanda">Irlanda</string>
+    <string name="suecia">Suécia</string>
+    <string name="belgica">Bélgica</string>
+    <string name="dinamarca">Dinamarca</string>
+
+    <string-array name="paises">
+        <item>@string/alemanha</item>
+        <item>@string/belgica</item>
+        <item>@string/dinamarca</item>
+        <item>@string/espanha</item>
+        <item>@string/franca</item>
+        <item>@string/holanda</item>
+        <item>@string/inglaterra</item>
+        <item>@string/irlanda</item>
+        <item>@string/italia</item>
+        <item>@string/portugal</item>
+        <item>@string/suecia</item>
+    </string-array>
+
+    <string name="n">N</string>
+    <string name="u1">U1</string>
+    <string name="u2">U2</string>
+    <string name="m1">M1</string>
+    <string name="m2">M2</string>
+
+    <string name="tipo_selecao">Tipo de Seleção</string>
+</resources>
