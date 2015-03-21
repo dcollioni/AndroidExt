@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Seletor Temas</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="entrar">Entrar</string>
+    <string name="title_activity_temas">TemasActivity</string>
+
+    <string name="azul">Azul</string>
+    <string name="vermelho">Vermelho</string>
+    <string name="amarelo">Amarelo</string>
+    <string name="verde">Verde</string>
+
+    <string-array name="temas">
+        <item>@string/azul</item>
+        <item>@string/vermelho</item>
+        <item>@string/amarelo</item>
+        <item>@string/verde</item>
+    </string-array>
+    <string name="title_activity_final">FinalActivity</string>
+    <string name="voce_selecionou">Você selecionou:</string>
+    <string name="avaliar">Avaliar</string>
+    <string name="title_activity_avaliar">AvaliarActivity</string>
+    <string name="ruim">Ruim</string>
+    <string name="regular">Regular</string>
+    <string name="bom">Bom</string>
+    <string name="enviar">Enviar</string>
+
+</resources>
