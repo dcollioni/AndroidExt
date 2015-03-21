@@ -14,5 +14,9 @@
     <string name="populacao">População:</string>
     <string name="km2">km²</string>
     
-    <!-- TODO: criar array regiões -->
+    <string-array name="regioes">
+        <item>@string/sudeste</item>
+        <item>@string/sul</item>
+    </string-array>
+
 </resources>

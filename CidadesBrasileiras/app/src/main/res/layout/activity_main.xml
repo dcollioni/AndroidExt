@@ -10,15 +10,30 @@
         android:layout_height="wrap_content"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"/>
 
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spRegiao" />
+
     <TextView android:text="@string/estado" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
         android:layout_marginTop="20dp"/>
 
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spEstado" />
+
     <TextView android:text="@string/cidade" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
         android:layout_marginTop="20dp"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spCidade" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -60,5 +75,11 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:id="@+id/tvPopulacao" />
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivFoto"
+        android:layout_marginTop="10dp"/>
 
 </LinearLayout>

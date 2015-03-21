@@ -7,6 +7,15 @@ public class Cidade {
     private String nome;
     private int populacao;
     private int extensao;
+    private int foto;
+
+    public int getFoto() {
+        return foto;
+    }
+
+    public void setFoto(int foto) {
+        this.foto = foto;
+    }
 
     public String getNome() {
         return nome;
@@ -32,10 +41,11 @@ public class Cidade {
         this.extensao = extensao;
     }
 
-    public Cidade(String nome, int populacao, int extensao) {
+    public Cidade(String nome, int populacao, int extensao, int foto) {
         this.nome = nome;
         this.populacao = populacao;
         this.extensao = extensao;
+        this.foto = foto;
     }
 
     @Override
