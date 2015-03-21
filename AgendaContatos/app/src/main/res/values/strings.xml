@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Agenda Contatos</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_detalhe_acitivity">DetalheAcitivity</string>
+    <string name="nome">Nome:</string>
+    <string name="email">E-mail:</string>
+    <string name="telefone">Telefone:</string>
+</resources>
