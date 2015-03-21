@@ -4,4 +4,9 @@
     <string name="produto">Produto</string>
     <string name="qtd">Qtd</string>
     <string name="adicionar">Adicionar</string>
+    <string name="preencha_info">Preencha as informações</string>
+    <string name="confirmacao">Confirmação</string>
+    <string name="deseja_excluir">Deseja excluir o produto</string>
+    <string name="nao">Não</string>
+    <string name="sim">Sim</string>
 </resources>

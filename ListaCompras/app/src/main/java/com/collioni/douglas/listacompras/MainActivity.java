@@ -1,5 +1,7 @@
 package com.collioni.douglas.listacompras;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -50,11 +52,15 @@ public class MainActivity extends ActionBarActivity {
                 if (!produto.isEmpty() && !strQtd.isEmpty()) {
                     int qtd = Integer.parseInt(strQtd);
 
-                    // TODO: adicionar item na lista
+                    ItemCompra item = new ItemCompra(produto, qtd);
+                    produtos.add(item);
+                    adapter.notifyDataSetChanged();
 
                     etProduto.setText(null);
                     etProduto.requestFocus();
                     etQtd.setText(null);
+                } else {
+                    trace(getString(R.string.preencha_info));
                 }
             }
         });
@@ -71,9 +77,65 @@ public class MainActivity extends ActionBarActivity {
         lvProdutos.setChoiceMode(ListView.CHOICE_MODE_NONE);
         lvProdutos.setAdapter(adapter);
 
-        // TODO: adicionar evento de click
+        lvProdutos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent,
+                                    View view,
+                                    int position,
+                                    long id) {
 
-        // TODO: adicionar evento de long click
+                ItemCompra item = (ItemCompra)
+                                   parent.getItemAtPosition(position);
+
+                String msg = getString(R.string.produto) + ": " + item.getProduto();
+                msg += "\n" + getString(R.string.qtd) + ": " + item.getQuantidade();
+
+                trace(msg);
+            }
+        });
+
+        lvProdutos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent,
+                                           View view,
+                                           int position,
+                                           long id) {
+
+                ItemCompra item = (ItemCompra)
+                                   parent.getItemAtPosition(position);
+
+                final int pos = position;
+
+                AlertDialog alert = new AlertDialog.Builder(MainActivity.this)
+                                        .setTitle(R.string.confirmacao)
+                                        .setMessage(
+                                                getString(R.string.deseja_excluir)
+                                                + " " + item.getProduto() + "?")
+                                        .setNegativeButton(
+                                                R.string.nao,
+                                                new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+                                                    }
+                                                }
+                                        )
+                                        .setPositiveButton(
+                                                R.string.sim,
+                                                new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+                                                        produtos.remove(pos);
+                                                        adapter.notifyDataSetChanged();
+                                                    }
+                                                }
+                                        )
+                                        .create();
+
+                alert.show();
+
+                return true;
+            }
+        });
     }
 
     private void trace(String msg) {
