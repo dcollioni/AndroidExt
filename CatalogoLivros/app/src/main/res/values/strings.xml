@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Catálogo Livros</string>
+
+    <string name="hello_world">Hello world!</string>
+
+    <string name="novo_autor">Novo autor</string>
+    <string name="excluir_todos">Excluir todos</string>
+    <string name="recarregar_autores">Recarregar autores</string>
+    <string name="title_activity_detalhe_autor">Detalhe Autor</string>
+    <string name="action_settings">Settings</string>
+    <string name="nome">Nome</string>
+    <string name="nacionalidade">Nacionalidade</string>
+    <string name="ano_nascimento">Ano de nascimento</string>
+    <string name="salvar">Salvar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="editar">Editar</string>
+    <string name="excluir">Excluir</string>
+    <string name="title_activity_livro">Livros</string>
+    <string name="novo_livro">Novo Livro</string>
+    <string name="recarregar_livros">Recarregar Livros</string>
+    <string name="compartilhar">Compartilhar</string>
+    <string name="title_activity_livro_detalhe">Detalhe Livro</string>
+    <string name="titulo">Título</string>
+    <string name="genero">Gênero</string>
+    <string name="ano_publicacao">Ano de Publicação</string>
+</resources>
