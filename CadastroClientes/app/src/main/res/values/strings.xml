@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Cadastro Clientes</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="novo_cliente">Novo Cliente</string>
+    <string name="title_activity_detalhe">DetalheActivity</string>
+    <string name="nome">Nome</string>
+    <string name="email">E-mail</string>
+    <string name="telefone">Telefone</string>
+    <string name="cidade">Cidade</string>
+    <string name="salvar">Salvar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="atualizar_cliente">Atualizar Cliente</string>
+    <string name="preencha_todos_campos">Preencha todos os campos</string>
+    <string name="info_salvas">As informações foram salvas</string>
+    <string name="excluir">Excluir</string>
+    <string name="confirma_exclusao">Confirma a exclusão?</string>
+    <string name="nao">Não</string>
+    <string name="sim">Sim</string>
+</resources>
