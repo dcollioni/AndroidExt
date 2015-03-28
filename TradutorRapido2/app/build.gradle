@@ -5,10 +5,10 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.collioni.douglas.consultacep"
+        applicationId "com.collioni.douglas.tradutorrapido2"
         minSdkVersion 15
         targetSdkVersion 21
-        versionCode 2
+        versionCode 1
         versionName "1.0"
     }
     buildTypes {
