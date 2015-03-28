@@ -66,8 +66,84 @@ public class LivroActivity extends ActionBarActivity {
             }
         });
 
-        // TODO: configurar CHOICE_MODE na lista
-        // TODO: adicionar setMultiChoiceModeListener
+        lvLivros.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+
+        lvLivros.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
+
+            ArrayList<Livro> livrosSelecionados = new ArrayList<Livro>();
+
+            @Override
+            public void onItemCheckedStateChanged(ActionMode mode,
+                                                  int position,
+                                                  long id,
+                                                  boolean checked) {
+
+                int count = lvLivros.getCheckedItemCount();
+                mode.setTitle(Integer.toString(count));
+
+                Livro l = livros.get(position);
+
+                if (checked) {
+                    livrosSelecionados.add(l);
+                } else {
+                    livrosSelecionados.remove(l);
+                }
+            }
+
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                MenuInflater inflater = mode.getMenuInflater();
+                inflater.inflate(R.menu.menu_lv_livros, menu);
+                return true;
+            }
+
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                return false;
+            }
+
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                int id = item.getItemId();
+
+                switch (id) {
+                    case R.id.menu_compartilhar_livros:
+
+                        String msg = getString(R.string.compartilhar) + ": ";
+
+                        for (Livro l : livrosSelecionados) {
+                            msg += "\n" + l.getTitulo();
+                        }
+
+                        Toast.makeText(
+                                getBaseContext(),
+                                msg,
+                                Toast.LENGTH_SHORT).show();
+
+                        return true;
+
+                    case R.id.menu_excluir_livros:
+
+                        for (Livro l : livrosSelecionados) {
+                            livros.remove(l);
+                        }
+
+                        adapter.notifyDataSetChanged();
+
+                        mode.finish();
+
+                        return true;
+
+                    default:
+                        return false;
+                }
+            }
+
+            @Override
+            public void onDestroyActionMode(ActionMode mode) {
+                livrosSelecionados.clear();
+            }
+        });
     }
 
     private void atualizarTitulo(Autor a) {
@@ -119,7 +195,27 @@ public class LivroActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         switch (id) {
-            // TODO: adicionar tratamento para os itens
+            case R.id.menu_novo_livro:
+                Intent i = new Intent(
+                                LivroActivity.this,
+                                LivroDetalheActivity.class);
+
+                startActivity(i);
+
+                return true;
+
+            case R.id.menu_excluir_todos_livros:
+                excluirLivros();
+                adapter.notifyDataSetChanged();
+
+                return true;
+
+            case R.id.menu_recarregar_livros:
+                excluirLivros();
+                carregarLivros(autor);
+                adapter.notifyDataSetChanged();
+
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);

@@ -3,8 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.collioni.douglas.catalogolivros.LivroActivity">
 
-    <!-- TODO: novo livro -->
-    <!-- TODO: recarregar livros -->
-    <!-- TODO: excluir livros -->
+    <item
+        android:id="@+id/menu_novo_livro"
+        android:title="@string/novo_livro"
+        app:showAsAction="ifRoom"
+        android:icon="@android:drawable/ic_menu_add"/>
+
+    <item
+        android:id="@+id/menu_recarregar_livros"
+        android:title="@string/recarregar_livros" />
+
+    <item
+        android:id="@+id/menu_excluir_todos_livros"
+        android:title="@string/excluir_todos" />
 
 </menu>

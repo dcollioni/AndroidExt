@@ -49,7 +49,7 @@ public class AutorActivity extends ActionBarActivity {
             }
         });
 
-        // TODO: registrar lvAutores para ContextMenu
+        registerForContextMenu(lvAutores);
     }
 
     private void carregarAutores() {
@@ -78,22 +78,78 @@ public class AutorActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         switch (id) {
-            // TODO: adicionar tratamento para os itens
+            case R.id.menu_novo_autor:
+                Intent i = new Intent(
+                                AutorActivity.this,
+                                AutorDetalheActivity.class);
+
+                startActivity(i);
+                return true;
+
+            case R.id.menu_excluir_autores:
+                excluirAutores();
+                adapter.notifyDataSetChanged();
+                return true;
+
+            case R.id.menu_recarregar_autores:
+                excluirAutores();
+                carregarAutores();
+                adapter.notifyDataSetChanged();
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    // TODO: implementar método onCreateContextMenu
+    @Override
+    public void onCreateContextMenu(ContextMenu menu,
+                                    View v,
+                                    ContextMenu.ContextMenuInfo menuInfo) {
 
-    // TODO: implementar método onContextItemSelected
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        if (v.getId() == R.id.lvAutores) {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.menu_lv_autores, menu);
+        }
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        AdapterView.AdapterContextMenuInfo info =
+                (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
+        switch (id) {
+            case R.id.menu_editar_autor:
+                editarAutor(info.position);
+                return true;
+
+            case R.id.menu_excluir_autor:
+                excluirAutor(info.position);
+                return true;
+
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
 
     private void editarAutor(int position) {
-        // TODO: pegar o autor da lista e abrir a tela de edição
+        Autor a = autores.get(position);
+
+        Intent i = new Intent(
+                        AutorActivity.this,
+                        AutorDetalheActivity.class);
+
+        i.putExtra(AUTOR_CHAVE, a);
+
+        startActivity(i);
     }
 
     private void excluirAutor(int position) {
-        // TODO: remover o autor da lista pela posição
+        autores.remove(position);
+        adapter.notifyDataSetChanged();
     }
 }
