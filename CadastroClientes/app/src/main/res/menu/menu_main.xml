@@ -8,4 +8,12 @@
         app:showAsAction="ifRoom"
         android:icon="@android:drawable/ic_menu_add" />
 
+    <item
+        android:id="@+id/menu_ordenar_asc"
+        android:title="@string/ordenar_asc"/>
+
+    <item
+        android:id="@+id/menu_ordenar_desc"
+        android:title="@string/ordenar_desc" />
+
 </menu>

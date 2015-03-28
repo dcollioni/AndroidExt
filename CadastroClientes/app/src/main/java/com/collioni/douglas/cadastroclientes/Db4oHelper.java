@@ -22,7 +22,9 @@ public class Db4oHelper {
 
     public void abrirConexao() {
         String dbFile = dir + DB4O_FILE;
-        db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), dbFile);
+        db = Db4oEmbedded.openFile(
+                    Db4oEmbedded.newConfiguration(),
+                    dbFile);
     }
 
     public void fecharConexao() {

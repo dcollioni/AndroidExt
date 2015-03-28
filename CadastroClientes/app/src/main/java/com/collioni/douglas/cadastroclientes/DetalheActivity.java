@@ -27,7 +27,8 @@ public class DetalheActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhe);
 
-        // TODO: pegar o clienteID da Intent
+        Intent i = getIntent();
+        clienteId = i.getLongExtra(MainActivity.CLIENTE_ID, 0);
 
         configurarDb4o();
 
@@ -39,19 +40,25 @@ public class DetalheActivity extends ActionBarActivity {
     }
 
     private void configurarDb4o() {
-        // TODO: criar db4oHelper e clienteDao
+        String dir = getDir("data", 0) + "/";
+        db4o = new Db4oHelper(dir);
+        clienteDao = new ClienteDao(db4o);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        // TODO: abrir conexão e atualizar campos
+        db4o.abrirConexao();
+
+        if (clienteId > 0) {
+            atualizarCampos();
+        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        // TODO: fechar conexão
+        db4o.fecharConexao();
     }
 
     private void carregarElementos() {
@@ -64,11 +71,20 @@ public class DetalheActivity extends ActionBarActivity {
     }
 
     private void atualizarTitulo() {
-        // TODO: novo cliente ou atualizar cliente
+        if (clienteId == 0) {
+            setTitle(R.string.novo_cliente);
+        } else {
+            setTitle(R.string.atualizar_cliente);
+        }
     }
 
     private void atualizarCampos() {
-        // TODO: buscar cliente no banco e atualizar campos
+        Cliente c = clienteDao.buscar(clienteId);
+
+        etNome.setText(c.getNome());
+        etEmail.setText(c.getEmail());
+        etTelefone.setText(c.getTelefone());
+        etCidade.setText(c.getCidade());
     }
 
     private void configurarBtCancelar() {
@@ -81,14 +97,63 @@ public class DetalheActivity extends ActionBarActivity {
     }
 
     private void configurarBtSalvar() {
-        // TODO: pegar valores dos campos e salvar cliente
+        btSalvar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String nome = etNome.getText().toString();
+                String email = etEmail.getText().toString();
+                String telefone = etTelefone.getText().toString();
+                String cidade = etCidade.getText().toString();
+
+                if (nome.isEmpty() || email.isEmpty() ||
+                    telefone.isEmpty() || cidade.isEmpty()) {
+
+                    trace(getString(
+                            R.string.preencha_todos_campos));
+
+                    return;
+                }
+
+                Cliente c = new Cliente(nome,
+                                        email,
+                                        telefone,
+                                        cidade);
+
+                salvarCliente(c);
+
+                finish();
+            }
+        });
     }
 
     private void salvarCliente(Cliente c) {
-        // TODO: inserir ou atualizar cliente
+        if (clienteId == 0) {
+
+            clienteDao.inserir(c);
+
+        } else {
+
+            clienteDao.atualizar(c, clienteId);
+        }
     }
 
     private void trace(String msg) {
         Toast.makeText(getBaseContext(), msg, Toast.LENGTH_SHORT).show();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

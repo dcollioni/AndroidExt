@@ -18,4 +18,7 @@
     <string name="confirma_exclusao">Confirma a exclusão?</string>
     <string name="nao">Não</string>
     <string name="sim">Sim</string>
+    <string name="ordenar_asc">Ordenar crescente</string>
+    <string name="ordenar_desc">Ordenar decrescente</string>
+    <string name="filtrar">Filtrar</string>
 </resources>

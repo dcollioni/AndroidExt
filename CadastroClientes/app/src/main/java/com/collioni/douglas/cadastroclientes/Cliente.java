@@ -3,7 +3,7 @@ package com.collioni.douglas.cadastroclientes;
 /**
  * Created by Douglas.Collioni on 27/03/2015.
  */
-public class Cliente {
+public class Cliente implements Comparable {
     private String nome;
     private String email;
     private String telefone;
@@ -56,4 +56,32 @@ public class Cliente {
     public String toString() {
         return nome;
     }
+
+    @Override
+    public int compareTo(Object another) {
+
+        Cliente outro = (Cliente) another;
+
+        return nome.toLowerCase()
+                    .compareTo(
+                        outro.getNome().toLowerCase());
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
